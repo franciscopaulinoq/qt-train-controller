@@ -1,0 +1,51 @@
+# Arquivos de configuração de usuário do Qt Creator
+*.pro.user
+*.pro.user.*
+*.creator
+*.creator.user
+
+# Arquivos de cache e de IDE
+.qmake.stash
+.qtc_clangd/
+.clangd/
+.cache/
+
+# Pastas de Build (MUITO IMPORTANTE)
+build-*/
+build/
+Debug/
+Release/
+debug/
+release/
+winrt_x64_msvc2019_64/
+winrt_x64_msvc2017_64/
+*_build/
+
+# Arquivos gerados pelo qmake e make
+Makefile*
+*.o
+*.obj
+*.log
+*.dll
+*.exe
+*.so
+*.dylib
+*.app/
+*.out
+
+# Arquivos gerados pelo Qt Meta-Object Compiler (moc) e User Interface Compiler (uic)
+moc_*.cpp
+moc_*.h
+ui_*.h
+qrc_*.cpp
+
+# Arquivos de backup
+*~
+*.bak
+
+# Configurações de IDEs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.sln.docstates
