@@ -24,7 +24,13 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: yellow</string>
+     <string notr="true">background-color: yellow;
+border-style: solid;
+border-color: black;
+border-width: 1px;</string>
+    </property>
+    <property name="lineWidth">
+     <number>3</number>
     </property>
     <property name="text">
      <string/>
