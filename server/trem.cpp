@@ -5,7 +5,7 @@ Trem::Trem(int id, int x, int y)
     this->id = id;
     this->x = x;
     this->y = y;
-    velocidade = 250;
+    velocidade = 200;
     enable = true;
 }
 
@@ -68,6 +68,28 @@ void Trem::run()
                 y += 10;
             else if (x > 430 && y == 220)
                 x -= 10;
+            else
+                y -= 10;
+            break;
+        case 4:
+            emit updateGUI(id, x, y);
+            if (y == 220 && x > 220)
+                x -= 10;
+            else if (x == 220 && y < 320)
+                y += 10;
+            else if (x < 500 && y == 320)
+                x += 10;
+            else
+                y -= 10;
+            break;
+        case 5:
+            emit updateGUI(id, x, y);
+            if (y == 220 && x > 220)
+                x -= 10;
+            else if (x == 220 && y < 320)
+                y += 10;
+            else if (x < 500 && y == 320)
+                x += 10;
             else
                 y -= 10;
             break;
