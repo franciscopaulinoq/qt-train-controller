@@ -6,8 +6,9 @@
 
 using namespace std;
 
-namespace Ui {
-class ServerWindow;
+namespace Ui
+{
+    class ServerWindow;
 }
 
 class ServerWindow : public QMainWindow
@@ -19,11 +20,13 @@ public:
     ~ServerWindow();
 
 public slots:
-    void updateInterface(int,int,int);
+    void updateInterface(int, int, int);
 
 private:
     Ui::ServerWindow *ui;
     Trem *trem1;
+    Trem *trem2;
+    Trem *trem3;
 };
 
 #endif // SERVERWINDOW_H

@@ -26,29 +26,50 @@ void Trem::setEnable(bool enable)
 
 void Trem::start()
 {
-    threadTrem = std::thread(&Trem::run,this);
+    threadTrem = std::thread(&Trem::run, this);
 }
 
 void Trem::run()
 {
-    while(true){
-        switch(id){
+    while (true)
+    {
+        switch (id)
+        {
         case 1:
             if (enable)
             {
-                emit updateGUI(id,x,y);
-                if (y == 120 && x <290)
-                    x+=10;
+                emit updateGUI(id, x, y);
+                if (y == 120 && x < 290)
+                    x += 10;
                 else if (x == 290 && y < 220)
-                    y+=10;
+                    y += 10;
                 else if (x > 150 && y == 220)
-                    x-=10;
+                    x -= 10;
                 else
-                    y-=10;
+                    y -= 10;
             }
             break;
         case 2:
-            //emit updateGUI(id, x,y);
+            emit updateGUI(id, x, y);
+            if (y == 120 && x > 290)
+                x -= 10;
+            else if (x == 290 && y < 220)
+                y += 10;
+            else if (x < 430 && y == 220)
+                x += 10;
+            else
+                y -= 10;
+            break;
+        case 3:
+            emit updateGUI(id, x, y);
+            if (y == 120 && x < 570)
+                x += 10;
+            else if (x == 570 && y < 220)
+                y += 10;
+            else if (x > 430 && y == 220)
+                x -= 10;
+            else
+                y -= 10;
             break;
         default:
             break;
@@ -56,4 +77,3 @@ void Trem::run()
         this_thread::sleep_for(chrono::milliseconds(velocidade));
     }
 }
-
