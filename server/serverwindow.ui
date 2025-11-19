@@ -226,7 +226,7 @@ border-width: 1px;</string>
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="labelTrem06">
+   <widget class="QLabel" name="labelTrem07">
     <property name="geometry">
      <rect>
       <x>550</x>
@@ -242,7 +242,7 @@ border-width: 1px;</string>
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="labelTrem07">
+   <widget class="QLabel" name="labelTrem06">
     <property name="geometry">
      <rect>
       <x>130</x>

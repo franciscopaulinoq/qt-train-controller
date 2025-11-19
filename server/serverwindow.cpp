@@ -25,6 +25,14 @@ ServerWindow::ServerWindow(QWidget *parent) : QMainWindow(parent),
     trem5 = new Trem(5, 480, 200);
     connect(trem5, SIGNAL(updateGUI(int, int, int)), SLOT(updateInterface(int, int, int)));
     trem5->start();
+
+    trem6 = new Trem(6, 130, 300);
+    connect(trem6, SIGNAL(updateGUI(int, int, int)), SLOT(updateInterface(int, int, int)));
+    trem6->start();
+
+    trem7 = new Trem(7, 550, 300);
+    connect(trem7, SIGNAL(updateGUI(int, int, int)), SLOT(updateInterface(int, int, int)));
+    trem7->start();
 }
 
 ServerWindow::~ServerWindow()
@@ -50,6 +58,12 @@ void ServerWindow::updateInterface(int id, int x, int y)
         break;
     case 5:
         ui->labelTrem05->setGeometry(x, y, 20, 20);
+        break;
+    case 6:
+        ui->labelTrem07->setGeometry(x, y, 20, 20);
+        break;
+    case 7:
+        ui->labelTrem06->setGeometry(x, y, 20, 20);
         break;
     default:
         break;
