@@ -32,8 +32,8 @@ void Trem::start()
 
 void Trem::run()
 {
-    if (this->id == 2 || this->id == 7) {
-        this->setVelocidade(50);
+    if (this->id == 2 || this->id == 6) {
+        this->setVelocidade(75);
     }
     while (true)
     {
@@ -135,24 +135,56 @@ void Trem::run()
         case 4:
             emit updateGUI(id, x, y);
             if (y == 150 && x > 200)
+            {
                 x -= 10;
+            }
             else if (x == 200 && y < 250)
+            {
+                if (y == 230)
+                {
+                    semaphoreVector->at(7).semaphore.acquire(1);
+                }
                 y += 10;
+            }
             else if (x < 480 && y == 250)
+            {
                 x += 10;
+                if (x == 340)
+                {
+                    semaphoreVector->at(7).semaphore.release(1);
+                }
+            }
             else
+            {
                 y -= 10;
+            }
             break;
         case 5:
             emit updateGUI(id, x, y);
             if (y == 150 && x > 200)
+            {
                 x -= 10;
+            }
             else if (x == 200 && y < 250)
+            {
+                if (y == 230)
+                {
+                    semaphoreVector->at(7).semaphore.acquire(1);
+                }
                 y += 10;
+            }
             else if (x < 480 && y == 250)
+            {
                 x += 10;
+                if (x == 340)
+                {
+                    semaphoreVector->at(7).semaphore.release(1);
+                }
+            }
             else
+            {
                 y -= 10;
+            }
             break;
         case 6:
             emit updateGUI(id, x, y);
@@ -161,6 +193,11 @@ void Trem::run()
                 if (x == 320)
                 {
                     semaphoreVector->at(5).semaphore.acquire(1);
+                    semaphoreVector->at(7).semaphore.release(1);
+                }
+                if (x == 180)
+                {
+                    semaphoreVector->at(7).semaphore.acquire(1);
                 }
                 x += 10;
             }
