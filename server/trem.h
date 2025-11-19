@@ -10,7 +10,7 @@ class Trem : public QObject
 {
     Q_OBJECT
 public:
-    Trem(int,int,int);
+    Trem(int, int, int);
     ~Trem();
     void start();
     void run();
@@ -18,15 +18,15 @@ public:
     void setEnable(bool);
 
 signals:
-    void updateGUI(int,int,int);
+    void updateGUI(int, int, int);
 
 private:
-   std::thread threadTrem;
-   int id;
-   int x;
-   int y;
-   int velocidade;
-   bool enable;
+    std::thread threadTrem;
+    int id;
+    int x;
+    int y;
+    int velocidade;
+    bool enable;
 };
 
 #endif // TREM_H
