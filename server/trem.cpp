@@ -39,11 +39,11 @@ void Trem::run()
             if (enable)
             {
                 emit updateGUI(id, x, y);
-                if (y == 120 && x < 290)
+                if (y == 50 && x < 270)
                     x += 10;
-                else if (x == 290 && y < 220)
+                else if (x == 270 && y < 150)
                     y += 10;
-                else if (x > 150 && y == 220)
+                else if (x > 130 && y == 150)
                     x -= 10;
                 else
                     y -= 10;
@@ -51,44 +51,44 @@ void Trem::run()
             break;
         case 2:
             emit updateGUI(id, x, y);
-            if (y == 120 && x > 290)
+            if (y == 50 && x > 270)
                 x -= 10;
-            else if (x == 290 && y < 220)
+            else if (x == 270 && y < 150)
                 y += 10;
-            else if (x < 430 && y == 220)
+            else if (x < 410 && y == 150)
                 x += 10;
             else
                 y -= 10;
             break;
         case 3:
             emit updateGUI(id, x, y);
-            if (y == 120 && x < 570)
+            if (y == 50 && x < 550)
                 x += 10;
-            else if (x == 570 && y < 220)
+            else if (x == 550 && y < 150)
                 y += 10;
-            else if (x > 430 && y == 220)
+            else if (x > 410 && y == 150)
                 x -= 10;
             else
                 y -= 10;
             break;
         case 4:
             emit updateGUI(id, x, y);
-            if (y == 220 && x > 220)
+            if (y == 150 && x > 200)
                 x -= 10;
-            else if (x == 220 && y < 320)
+            else if (x == 200 && y < 250)
                 y += 10;
-            else if (x < 500 && y == 320)
+            else if (x < 480 && y == 250)
                 x += 10;
             else
                 y -= 10;
             break;
         case 5:
             emit updateGUI(id, x, y);
-            if (y == 220 && x > 220)
+            if (y == 150 && x > 200)
                 x -= 10;
-            else if (x == 220 && y < 320)
+            else if (x == 200 && y < 250)
                 y += 10;
-            else if (x < 500 && y == 320)
+            else if (x < 480 && y == 250)
                 x += 10;
             else
                 y -= 10;

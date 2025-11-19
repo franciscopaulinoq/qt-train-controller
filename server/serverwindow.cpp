@@ -6,23 +6,23 @@ ServerWindow::ServerWindow(QWidget *parent) : QMainWindow(parent),
 {
     ui->setupUi(this);
 
-    trem1 = new Trem(1, 220, 120);
+    trem1 = new Trem(1, 200, 50);
     connect(trem1, SIGNAL(updateGUI(int, int, int)), SLOT(updateInterface(int, int, int)));
     trem1->start();
 
-    trem2 = new Trem(2, 360, 120);
+    trem2 = new Trem(2, 340, 50);
     connect(trem2, SIGNAL(updateGUI(int, int, int)), SLOT(updateInterface(int, int, int)));
     trem2->start();
 
-    trem3 = new Trem(3, 500, 120);
+    trem3 = new Trem(3, 480, 50);
     connect(trem3, SIGNAL(updateGUI(int, int, int)), SLOT(updateInterface(int, int, int)));
     trem3->start();
 
-    trem4 = new Trem(4, 220, 270);
+    trem4 = new Trem(4, 200, 200);
     connect(trem4, SIGNAL(updateGUI(int, int, int)), SLOT(updateInterface(int, int, int)));
     trem4->start();
 
-    trem5 = new Trem(5, 500, 270);
+    trem5 = new Trem(5, 480, 200);
     connect(trem5, SIGNAL(updateGUI(int, int, int)), SLOT(updateInterface(int, int, int)));
     trem5->start();
 }
