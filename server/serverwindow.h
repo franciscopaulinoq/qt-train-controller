@@ -3,6 +3,8 @@
 
 #include "trem.h"
 #include <QMainWindow>
+#include <QSemaphore>
+#include <QVector>
 
 using namespace std;
 
@@ -31,6 +33,7 @@ private:
     Trem *trem5;
     Trem *trem6;
     Trem *trem7;
+    QVector<BinarySemaphoreWrapper> semaphoreVector{8};
 };
 
 #endif // SERVERWINDOW_H

@@ -6,31 +6,31 @@ ServerWindow::ServerWindow(QWidget *parent) : QMainWindow(parent),
 {
     ui->setupUi(this);
 
-    trem1 = new Trem(1, 200, 50);
+    trem1 = new Trem(1, 200, 50, &semaphoreVector);
     connect(trem1, SIGNAL(updateGUI(int, int, int)), SLOT(updateInterface(int, int, int)));
     trem1->start();
 
-    trem2 = new Trem(2, 340, 50);
+    trem2 = new Trem(2, 340, 50, &semaphoreVector);
     connect(trem2, SIGNAL(updateGUI(int, int, int)), SLOT(updateInterface(int, int, int)));
     trem2->start();
 
-    trem3 = new Trem(3, 480, 50);
+    trem3 = new Trem(3, 480, 50, &semaphoreVector);
     connect(trem3, SIGNAL(updateGUI(int, int, int)), SLOT(updateInterface(int, int, int)));
     trem3->start();
 
-    trem4 = new Trem(4, 200, 200);
+    trem4 = new Trem(4, 200, 200, &semaphoreVector);
     connect(trem4, SIGNAL(updateGUI(int, int, int)), SLOT(updateInterface(int, int, int)));
     trem4->start();
 
-    trem5 = new Trem(5, 480, 200);
+    trem5 = new Trem(5, 480, 200, &semaphoreVector);
     connect(trem5, SIGNAL(updateGUI(int, int, int)), SLOT(updateInterface(int, int, int)));
     trem5->start();
 
-    trem6 = new Trem(6, 130, 300);
+    trem6 = new Trem(6, 130, 300, &semaphoreVector);
     connect(trem6, SIGNAL(updateGUI(int, int, int)), SLOT(updateInterface(int, int, int)));
     trem6->start();
 
-    trem7 = new Trem(7, 550, 300);
+    trem7 = new Trem(7, 550, 300, &semaphoreVector);
     connect(trem7, SIGNAL(updateGUI(int, int, int)), SLOT(updateInterface(int, int, int)));
     trem7->start();
 }
@@ -60,10 +60,10 @@ void ServerWindow::updateInterface(int id, int x, int y)
         ui->labelTrem05->setGeometry(x, y, 20, 20);
         break;
     case 6:
-        ui->labelTrem07->setGeometry(x, y, 20, 20);
+        ui->labelTrem06->setGeometry(x, y, 20, 20);
         break;
     case 7:
-        ui->labelTrem06->setGeometry(x, y, 20, 20);
+        ui->labelTrem07->setGeometry(x, y, 20, 20);
         break;
     default:
         break;
