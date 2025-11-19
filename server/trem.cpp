@@ -192,7 +192,7 @@ void Trem::run()
             {
                 if (x == 320)
                 {
-                    semaphoreVector->at(5).semaphore.acquire(1);
+                    semaphoreVector->at(4).semaphore.acquire(1);
                     semaphoreVector->at(7).semaphore.release(1);
                 }
                 if (x == 180)
@@ -210,7 +210,7 @@ void Trem::run()
                 x -= 10;
                 if (x == 320)
                 {
-                    semaphoreVector->at(5).semaphore.release(1);
+                    semaphoreVector->at(4).semaphore.release(1);
                 }
             }
             else
@@ -225,7 +225,7 @@ void Trem::run()
                 x += 10;
                 if (x == 360)
                 {
-                    semaphoreVector->at(5).semaphore.release(1);
+                    semaphoreVector->at(4).semaphore.release(1);
                 }
             }
             else if (x == 550 && y < 350)
@@ -236,7 +236,7 @@ void Trem::run()
             {
                 if (x == 360)
                 {
-                    semaphoreVector->at(5).semaphore.acquire(1);
+                    semaphoreVector->at(4).semaphore.acquire(1);
                 }
                 x -= 10;
             }
