@@ -169,6 +169,10 @@ void Trem::run()
                 {
                     semaphoreVector->at(6).semaphore.acquire(1);
                 }
+                if (x == 220)
+                {
+                    semaphoreVector->at(9).semaphore.acquire(1);
+                }
                 x -= 10;
                 if (x == 400)
                 {
@@ -181,7 +185,6 @@ void Trem::run()
                 if (x == 460)
                 {
                     semaphoreVector->at(8).semaphore.release(1);
-                    cout << "Caiu aqui no Trem 4 eh para abrir o RC9" << endl;
                 }
             }
             else if (x == 200 && y < 250)
@@ -205,12 +208,15 @@ void Trem::run()
                 if (x == 460)
                 {
                     semaphoreVector->at(8).semaphore.acquire(1);
-                    cout << "Caiu aqui no Trem 4 eh para fechar o RC9" << endl;
                 }
                 x += 10;
                 if (x == 340)
                 {
                     semaphoreVector->at(7).semaphore.release(1);
+                }
+                if (x == 220)
+                {
+                    semaphoreVector->at(9).semaphore.release(1);
                 }
             }
             else
@@ -238,6 +244,10 @@ void Trem::run()
                 {
                     semaphoreVector->at(6).semaphore.acquire(1);
                 }
+                if (x == 220)
+                {
+                    semaphoreVector->at(9).semaphore.acquire(1);
+                }
                 x -= 10;
                 if (x == 400)
                 {
@@ -250,7 +260,6 @@ void Trem::run()
                 if (x == 460)
                 {
                     semaphoreVector->at(8).semaphore.release(1);
-                    cout << "Caiu aqui no Trem 5 eh para abrir o RC9" << endl;
                 }
             }
             else if (x == 200 && y < 250)
@@ -274,12 +283,15 @@ void Trem::run()
                 if (x == 460)
                 {
                     semaphoreVector->at(8).semaphore.acquire(1);
-                    cout << "Caiu aqui no Trem 5 eh para fechar o RC9" << endl;
                 }
                 x += 10;
                 if (x == 340)
                 {
                     semaphoreVector->at(7).semaphore.release(1);
+                }
+                if (x == 220)
+                {
+                    semaphoreVector->at(9).semaphore.release(1);
                 }
             }
             else
