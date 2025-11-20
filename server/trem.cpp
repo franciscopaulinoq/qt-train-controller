@@ -1,12 +1,13 @@
 #include "trem.h"
 
-Trem::Trem(int id, int x, int y)
+Trem::Trem(int id, int x, int y, QVector<BinarySemaphoreWrapper> *semaphoreVector)
 {
     this->id = id;
     this->x = x;
     this->y = y;
-    velocidade = 250;
+    velocidade = 300;
     enable = true;
+    this->semaphoreVector = semaphoreVector;
 }
 
 Trem::~Trem()
@@ -26,29 +27,154 @@ void Trem::setEnable(bool enable)
 
 void Trem::start()
 {
-    threadTrem = std::thread(&Trem::run,this);
+    threadTrem = std::thread(&Trem::run, this);
 }
 
 void Trem::run()
 {
-    while(true){
-        switch(id){
+    if (this->id == 2) {
+        this->setVelocidade(75);
+    }
+    while (true)
+    {
+        switch (id)
+        {
         case 1:
             if (enable)
             {
-                emit updateGUI(id,x,y);
-                if (y == 120 && x <290)
-                    x+=10;
-                else if (x == 290 && y < 220)
-                    y+=10;
-                else if (x > 150 && y == 220)
-                    x-=10;
+                emit updateGUI(id, x, y);
+                if (y == 50 && x < 270)
+                {
+                    if (x == 250)
+                    {
+                        semaphoreVector->at(0).semaphore.acquire(1);
+                    }
+                    x += 10;
+                }
+                else if (x == 270 && y < 150)
+                {
+                    y += 10;
+                }
+                else if (x > 130 && y == 150)
+                {
+                    x -= 10;
+                    if (x == 250)
+                    {
+                        semaphoreVector->at(0).semaphore.release(1);
+                    }
+                }
                 else
-                    y-=10;
+                {
+                    y -= 10;
+                }
             }
             break;
         case 2:
-            //emit updateGUI(id, x,y);
+            emit updateGUI(id, x, y);
+            if (y == 50 && x > 270)
+            {
+                if (x == 290)
+                {
+                    semaphoreVector->at(0).semaphore.acquire(1);
+                }
+                if (x == 390)
+                {
+                    semaphoreVector->at(1).semaphore.release(1);
+                }
+                x -= 10;
+            }
+            else if (x == 270 && y < 150)
+            {
+                y += 10;
+            }
+            else if (x < 410 && y == 150)
+            {
+                if (x == 390)
+                {
+                    semaphoreVector->at(1).semaphore.acquire(1);
+                }
+                x += 10;
+                if (x == 290)
+                {
+                    semaphoreVector->at(0).semaphore.release(1);
+                }
+
+            }
+            else
+            {
+                y -= 10;
+            }
+            break;
+        case 3:
+            emit updateGUI(id, x, y);
+            if (y == 50 && x < 550)
+            {
+                if (x == 430)
+                {
+                    semaphoreVector->at(1).semaphore.release(1);
+                }
+                x += 10;
+            }
+            else if (x == 550 && y < 150)
+            {
+                y += 10;
+            }
+            else if (x > 410 && y == 150)
+            {
+                if (x == 430)
+                {
+                    semaphoreVector->at(1).semaphore.acquire(1);
+                }
+                x -= 10;
+            }
+            else
+            {
+                y -= 10;
+            }
+            break;
+        case 4:
+            emit updateGUI(id, x, y);
+            if (y == 150 && x > 200)
+                x -= 10;
+            else if (x == 200 && y < 250)
+                y += 10;
+            else if (x < 480 && y == 250)
+                x += 10;
+            else
+                y -= 10;
+            break;
+        case 5:
+            emit updateGUI(id, x, y);
+            if (y == 150 && x > 200)
+                x -= 10;
+            else if (x == 200 && y < 250)
+                y += 10;
+            else if (x < 480 && y == 250)
+                x += 10;
+            else
+                y -= 10;
+            break;
+        case 6:
+            emit updateGUI(id, x, y);
+            if (y == 250 && x < 340)
+                x += 10;
+            else if (x == 340 && y < 350)
+                y += 10;
+            else if (x > 130 && y == 350)
+                x -= 10;
+            else
+                y -= 10;
+            break;
+        case 7:
+            emit updateGUI(id, x, y);
+            if (y == 250 && x < 550)
+                x += 10;
+            else if (x == 550 && y < 350)
+                y += 10;
+            else if (x > 340 && y == 350)
+                x -= 10;
+            else
+                y -= 10;
             break;
         default:
             break;
@@ -56,4 +182,3 @@ void Trem::run()
         this_thread::sleep_for(chrono::milliseconds(velocidade));
     }
 }
-

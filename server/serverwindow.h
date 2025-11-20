@@ -3,11 +3,14 @@
 
 #include "trem.h"
 #include <QMainWindow>
+#include <QSemaphore>
+#include <QVector>
 
 using namespace std;
 
-namespace Ui {
-class ServerWindow;
+namespace Ui
+{
+    class ServerWindow;
 }
 
 class ServerWindow : public QMainWindow
@@ -19,11 +22,18 @@ public:
     ~ServerWindow();
 
 public slots:
-    void updateInterface(int,int,int);
+    void updateInterface(int, int, int);
 
 private:
     Ui::ServerWindow *ui;
     Trem *trem1;
+    Trem *trem2;
+    Trem *trem3;
+    Trem *trem4;
+    Trem *trem5;
+    Trem *trem6;
+    Trem *trem7;
+    QVector<BinarySemaphoreWrapper> semaphoreVector{8};
 };
 
 #endif // SERVERWINDOW_H
