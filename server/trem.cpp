@@ -33,7 +33,7 @@ void Trem::start()
 
 void Trem::run()
 {
-    if (this->id == 2 || this->id == 7) {
+    if (this->id == 1 || this->id == 7) {
         this->setVelocidade(75);
     }
     while (true)
@@ -54,6 +54,10 @@ void Trem::run()
                 }
                 else if (x == 270 && y < 150)
                 {
+                    if (y == 130)
+                    {
+                        semaphoreVector->at(5).semaphore.acquire(1);
+                    }
                     y += 10;
                 }
                 else if (x > 130 && y == 150)
@@ -62,6 +66,10 @@ void Trem::run()
                     if (x == 250)
                     {
                         semaphoreVector->at(0).semaphore.release(1);
+                    }
+                    if (x == 190)
+                    {
+                        semaphoreVector->at(5).semaphore.release(1);
                     }
                 }
                 else
@@ -137,6 +145,10 @@ void Trem::run()
             emit updateGUI(id, x, y);
             if (y == 150 && x > 200)
             {
+                if (x == 290)
+                {
+                    semaphoreVector->at(5).semaphore.acquire(1);
+                }
                 x -= 10;
             }
             else if (x == 200 && y < 250)
@@ -146,6 +158,10 @@ void Trem::run()
                     semaphoreVector->at(7).semaphore.acquire(1);
                 }
                 y += 10;
+                if (y == 170)
+                {
+                    semaphoreVector->at(5).semaphore.release(1);
+                }
             }
             else if (x < 480 && y == 250)
             {
@@ -174,6 +190,10 @@ void Trem::run()
             emit updateGUI(id, x, y);
             if (y == 150 && x > 200)
             {
+                if (x == 290)
+                {
+                    semaphoreVector->at(5).semaphore.acquire(1);
+                }
                 x -= 10;
             }
             else if (x == 200 && y < 250)
@@ -183,6 +203,10 @@ void Trem::run()
                     semaphoreVector->at(7).semaphore.acquire(1);
                 }
                 y += 10;
+                if (y == 170)
+                {
+                    semaphoreVector->at(5).semaphore.release(1);
+                }
             }
             else if (x < 480 && y == 250)
             {
