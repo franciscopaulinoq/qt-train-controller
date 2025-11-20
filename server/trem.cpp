@@ -94,6 +94,10 @@ void Trem::run()
             }
             else if (x == 270 && y < 150)
             {
+                if (y == 130)
+                {
+                    semaphoreVector->at(6).semaphore.acquire(1);
+                }
                 y += 10;
             }
             else if (x < 410 && y == 150)
@@ -112,6 +116,10 @@ void Trem::run()
             else
             {
                 y -= 10;
+                if (y == 130)
+                {
+                    semaphoreVector->at(6).semaphore.release(1);
+                }
             }
             break;
         case 3:
@@ -157,10 +165,18 @@ void Trem::run()
                 {
                     semaphoreVector->at(5).semaphore.acquire(1);
                 }
+                if (x == 400)
+                {
+                    semaphoreVector->at(6).semaphore.acquire(1);
+                }
                 x -= 10;
                 if (x == 400)
                 {
                     semaphoreVector->at(2).semaphore.release(1);
+                }
+                if (x == 260)
+                {
+                    semaphoreVector->at(6).semaphore.release(1);
                 }
             }
             else if (x == 200 && y < 250)
@@ -211,10 +227,18 @@ void Trem::run()
                 {
                     semaphoreVector->at(5).semaphore.acquire(1);
                 }
+                if (x == 400)
+                {
+                    semaphoreVector->at(6).semaphore.acquire(1);
+                }
                 x -= 10;
                 if (x == 400)
                 {
                     semaphoreVector->at(2).semaphore.release(1);
+                }
+                if (x == 260)
+                {
+                    semaphoreVector->at(6).semaphore.release(1);
                 }
             }
             else if (x == 200 && y < 250)
