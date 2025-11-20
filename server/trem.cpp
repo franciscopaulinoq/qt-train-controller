@@ -33,7 +33,7 @@ void Trem::start()
 
 void Trem::run()
 {
-    if (this->id == 1 || this->id == 7) {
+    if (this->id == 1 || this->id == 7 || this->id == 3) {
         this->setVelocidade(75);
     }
     while (true)
@@ -165,7 +165,7 @@ void Trem::run()
                 {
                     semaphoreVector->at(5).semaphore.acquire(1);
                 }
-                if (x == 400)
+                if (x == 430)
                 {
                     semaphoreVector->at(6).semaphore.acquire(1);
                 }
@@ -174,7 +174,7 @@ void Trem::run()
                 {
                     semaphoreVector->at(2).semaphore.release(1);
                 }
-                if (x == 260)
+                if (x == 250)
                 {
                     semaphoreVector->at(6).semaphore.release(1);
                 }
@@ -227,7 +227,7 @@ void Trem::run()
                 {
                     semaphoreVector->at(5).semaphore.acquire(1);
                 }
-                if (x == 400)
+                if (x == 430)
                 {
                     semaphoreVector->at(6).semaphore.acquire(1);
                 }
@@ -236,7 +236,7 @@ void Trem::run()
                 {
                     semaphoreVector->at(2).semaphore.release(1);
                 }
-                if (x == 260)
+                if (x == 250)
                 {
                     semaphoreVector->at(6).semaphore.release(1);
                 }
@@ -303,7 +303,7 @@ void Trem::run()
             else if (x > 130 && y == 350)
             {
                 x -= 10;
-                if (x == 320)
+                if (x == 310)
                 {
                     semaphoreVector->at(4).semaphore.release(1);
                 }
