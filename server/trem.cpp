@@ -178,6 +178,11 @@ void Trem::run()
                 {
                     semaphoreVector->at(6).semaphore.release(1);
                 }
+                if (x == 460)
+                {
+                    semaphoreVector->at(8).semaphore.release(1);
+                    cout << "Caiu aqui no Trem 4 eh para abrir o RC9" << endl;
+                }
             }
             else if (x == 200 && y < 250)
             {
@@ -195,8 +200,12 @@ void Trem::run()
             {
                 if (x == 320)
                 {
-                    cout << "Caiu aqui no Trem 4 eh para fechar o RC4" << endl;
                     semaphoreVector->at(3).semaphore.acquire(1);
+                }
+                if (x == 460)
+                {
+                    semaphoreVector->at(8).semaphore.acquire(1);
+                    cout << "Caiu aqui no Trem 4 eh para fechar o RC9" << endl;
                 }
                 x += 10;
                 if (x == 340)
@@ -208,13 +217,11 @@ void Trem::run()
             {
                 if (y == 170)
                 {
-                    cout << "Caiu aqui no Trem 4 eh para fechar o RC4" << endl;
                     semaphoreVector->at(2).semaphore.acquire(1);
                 }
                 y -= 10;
                 if (y == 240)
                 {
-                    cout << "Caiu aqui no Trem 4 eh para abrir o RC4" << endl;
                     semaphoreVector->at(3).semaphore.release(1);
                 }
             }
@@ -240,6 +247,11 @@ void Trem::run()
                 {
                     semaphoreVector->at(6).semaphore.release(1);
                 }
+                if (x == 460)
+                {
+                    semaphoreVector->at(8).semaphore.release(1);
+                    cout << "Caiu aqui no Trem 5 eh para abrir o RC9" << endl;
+                }
             }
             else if (x == 200 && y < 250)
             {
@@ -257,8 +269,12 @@ void Trem::run()
             {
                 if (x == 320)
                 {
-                    cout << "Caiu aqui no Trem 4 eh para fechar o RC4" << endl;
                     semaphoreVector->at(3).semaphore.acquire(1);
+                }
+                if (x == 460)
+                {
+                    semaphoreVector->at(8).semaphore.acquire(1);
+                    cout << "Caiu aqui no Trem 5 eh para fechar o RC9" << endl;
                 }
                 x += 10;
                 if (x == 340)
@@ -270,13 +286,11 @@ void Trem::run()
             {
                 if (y == 170)
                 {
-                    cout << "Caiu aqui no Trem 4 eh para fechar o RC4" << endl;
                     semaphoreVector->at(2).semaphore.acquire(1);
                 }
                 y -= 10;
                 if (y == 240)
                 {
-                    cout << "Caiu aqui no Trem 4 eh para abrir o RC4" << endl;
                     semaphoreVector->at(3).semaphore.release(1);
                 }
             }
@@ -327,7 +341,6 @@ void Trem::run()
                 }
                 if (x == 500)
                 {
-                    cout << "Caiu aqui no Trem 7 eh para abrir o RC4" << endl;
                     semaphoreVector->at(3).semaphore.release(1);
                 }
             }
@@ -347,7 +360,6 @@ void Trem::run()
             {
                 if (y == 270)
                 {
-                    cout << "Caiu aqui no Trem 7 eh para fechar o RC4" << endl;
                     semaphoreVector->at(3).semaphore.acquire(1);
                 }
                 y -= 10;

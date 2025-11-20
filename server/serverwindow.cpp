@@ -24,6 +24,7 @@ ServerWindow::ServerWindow(QWidget *parent) : QMainWindow(parent),
 
     trem5 = new Trem(5, 480, 200, &semaphoreVector);
     connect(trem5, SIGNAL(updateGUI(int, int, int)), SLOT(updateInterface(int, int, int)));
+    semaphoreVector.at(8).semaphore.acquire(1);
     trem5->start();
 
     trem6 = new Trem(6, 130, 300, &semaphoreVector);
