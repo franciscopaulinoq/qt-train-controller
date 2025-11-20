@@ -6,6 +6,9 @@ ServerWindow::ServerWindow(QWidget *parent) : QMainWindow(parent),
 {
     ui->setupUi(this);
 
+    tcpServer = new ControllerTcpServer(this);
+    tcpServer->startServer(1234);
+
     trem1 = new Trem(1, 200, 50, &semaphoreVector);
     connect(trem1, SIGNAL(updateGUI(int, int, int)), SLOT(updateInterface(int, int, int)));
     trem1->start();

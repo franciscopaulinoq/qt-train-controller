@@ -2,6 +2,7 @@
 #define SERVERWINDOW_H
 
 #include "trem.h"
+#include "controllertcpserver.h"
 #include <QMainWindow>
 #include <QSemaphore>
 #include <QVector>
@@ -26,6 +27,9 @@ public slots:
 
 private:
     Ui::ServerWindow *ui;
+
+    ControllerTcpServer *tcpServer;
+
     Trem *trem1;
     Trem *trem2;
     Trem *trem3;
