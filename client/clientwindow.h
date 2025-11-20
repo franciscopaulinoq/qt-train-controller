@@ -2,6 +2,7 @@
 #define CLIENTWINDOW_H
 
 #include <QMainWindow>
+#include <QTcpSocket>
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -18,7 +19,24 @@ public:
     ClientWindow(QWidget *parent = nullptr);
     ~ClientWindow();
 
+private slots:
+    void on_btnTrainOn_clicked();
+    void on_btnTrainOff_clicked();
+    void on_sliderSpeed_valueChanged(int value);
+
+
+    // socket events
+    void onConnected();
+    void onDisconnected();
+    void onReadyRead();
+    void onError(QAbstractSocket::SocketError);
+
 private:
     Ui::ClientWindow *ui;
+    QTcpSocket *socket;
+
+    void log(const QString &msg);
+    void sendCommand(const QString &cmd);
 };
+
 #endif // CLIENTWINDOW_H
