@@ -146,6 +146,7 @@ border-width: 1px;</string>
      <string/>
     </property>
    </widget>
+
    <widget class="QLabel" name="labelTrem01">
     <property name="geometry">
      <rect>
@@ -156,10 +157,13 @@ border-width: 1px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: red</string>
+     <string notr="true">background-color: red; color: white; font-weight: bold; border: 2px solid black;</string>
     </property>
     <property name="text">
-     <string/>
+     <string>1</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="labelTrem02">
@@ -172,10 +176,13 @@ border-width: 1px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: red</string>
+     <string notr="true">background-color: red; color: white; font-weight: bold; border: 2px solid black;</string>
     </property>
     <property name="text">
-     <string/>
+     <string>2</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="labelTrem03">
@@ -188,10 +195,13 @@ border-width: 1px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: red</string>
+     <string notr="true">background-color: red; color: white; font-weight: bold; border: 2px solid black;</string>
     </property>
     <property name="text">
-     <string/>
+     <string>3</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="labelTrem04">
@@ -204,10 +214,13 @@ border-width: 1px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: red</string>
+     <string notr="true">background-color: red; color: white; font-weight: bold; border: 2px solid black;</string>
     </property>
     <property name="text">
-     <string/>
+     <string>4</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="labelTrem05">
@@ -220,10 +233,13 @@ border-width: 1px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: red</string>
+     <string notr="true">background-color: red; color: white; font-weight: bold; border: 2px solid black;</string>
     </property>
     <property name="text">
-     <string/>
+     <string>5</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="labelTrem07">
@@ -236,10 +252,13 @@ border-width: 1px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: red</string>
+     <string notr="true">background-color: red; color: white; font-weight: bold; border: 2px solid black;</string>
     </property>
     <property name="text">
-     <string/>
+     <string>7</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="labelTrem06">
@@ -252,10 +271,13 @@ border-width: 1px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: red</string>
+     <string notr="true">background-color: red; color: white; font-weight: bold; border: 2px solid black;</string>
     </property>
     <property name="text">
-     <string/>
+     <string>6</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>

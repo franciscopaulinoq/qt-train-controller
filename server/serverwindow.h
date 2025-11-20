@@ -33,7 +33,7 @@ private:
     Trem *trem5;
     Trem *trem6;
     Trem *trem7;
-    QVector<BinarySemaphoreWrapper> semaphoreVector{8};
+    QVector<BinarySemaphoreWrapper> semaphoreVector{10};
 };
 
 #endif // SERVERWINDOW_H
