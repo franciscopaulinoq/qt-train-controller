@@ -6,7 +6,7 @@ Trem::Trem(int id, int x, int y, QVector<BinarySemaphoreWrapper> *semaphoreVecto
     this->x = x;
     this->y = y;
     velocidade = 300;
-    enable = true;
+    enable = false;
     this->semaphoreVector = semaphoreVector;
 }
 
