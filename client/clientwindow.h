@@ -37,6 +37,7 @@ private:
 
     void log(const QString &msg);
     void sendCommand(const QString &cmd);
+    void sendJson(const QJsonObject &jsonObj);
 };
 
 #endif // CLIENTWINDOW_H

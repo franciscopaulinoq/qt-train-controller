@@ -3,6 +3,9 @@
 #include <QTcpSocket>
 #include <QDebug>
 
+#include <QJsonObject>
+#include <QJsonDocument>
+
 ClientWindow::ClientWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::ClientWindow)
@@ -32,12 +35,17 @@ void ClientWindow::log(const QString &msg)
     qDebug() << msg;
 }
 
-void ClientWindow::sendCommand(const QString &cmd)
+void ClientWindow::sendJson(const QJsonObject &jsonObj)
 {
     if (socket->state() == QAbstractSocket::ConnectedState) {
-        socket->write(cmd.toUtf8() + "\n");
+        QJsonDocument doc(jsonObj);
+        
+        QByteArray data = doc.toJson(QJsonDocument::Compact);
+        
+        socket->write(data);
         socket->flush();
-        log("[CLIENT] " + cmd);
+        
+        log("[ENVIADO] " + QString::fromUtf8(data));
     } else {
         log("⚠ Não conectado ao servidor!");
     }
@@ -51,18 +59,41 @@ void ClientWindow::on_btnTrainOn_clicked()
 {
     int id = ui->lineTrainId->text().toInt();
     int speed = ui->sliderSpeed->value();
-    sendCommand(QString("TRAIN %1 ON %2").arg(id).arg(speed));
+
+    QJsonObject json;
+    json["id"] = id;
+    json["velocidade"] = speed;
+    json["enable"] = true;
+
+    sendJson(json);
 }
 
 void ClientWindow::on_btnTrainOff_clicked()
 {
     int id = ui->lineTrainId->text().toInt();
-    sendCommand(QString("TRAIN %1 OFF").arg(id));
+
+    QJsonObject json;
+    json["id"] = id;
+    json["velocidade"] = 0;
+    json["enable"] = false;
+
+    sendJson(json);
 }
 
 void ClientWindow::on_sliderSpeed_valueChanged(int value)
 {
     ui->labelSpeedValue->setText(QString::number(value));
+    
+
+    int id = ui->lineTrainId->text().toInt();
+
+    if (id >= 0 && socket->state() == QAbstractSocket::ConnectedState) {
+        QJsonObject json;
+        json["id"] = id;
+        json["velocidade"] = value;
+        json["enable"] = true; 
+        sendJson(json);
+    }
 }
 
 
@@ -82,8 +113,8 @@ void ClientWindow::onDisconnected()
 void ClientWindow::onReadyRead()
 {
     while (socket->bytesAvailable()) {
-        QString line = socket->readLine().trimmed();
-        log("[SERVER] " + line);
+        QByteArray data = socket->readAll();
+        log("[SERVER] " + QString::fromUtf8(data));
     }
 }
 
