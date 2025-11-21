@@ -84,20 +84,16 @@ void ClientWindow::on_sliderSpeed_valueChanged(int value)
 {
     ui->labelSpeedValue->setText(QString::number(value));
     
-    // OPCIONAL: Se você quiser que o trem mude de velocidade 
-    // EM TEMPO REAL enquanto arrasta o slider, descomente abaixo:
-    
-    /*
+
     int id = ui->lineTrainId->text().toInt();
-    // Só envia se tiver um ID válido (>0) para não spamar erro
-    if (id > 0 && socket->state() == QAbstractSocket::ConnectedState) {
+
+    if (id >= 0 && socket->state() == QAbstractSocket::ConnectedState) {
         QJsonObject json;
         json["id"] = id;
         json["velocidade"] = value;
         json["enable"] = true; 
         sendJson(json);
     }
-    */
 }
 
 
