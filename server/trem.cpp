@@ -1,5 +1,4 @@
 #include "trem.h"
-#include <iostream>
 
 Trem::Trem(int id, int x, int y, QVector<BinarySemaphoreWrapper> *semaphoreVector)
 {
@@ -33,10 +32,6 @@ void Trem::start()
 
 void Trem::run()
 {
-    if (this->id == 4 || this->id == 7 || this->id == 3)
-    {
-        this->setVelocidade(75);
-    }
     while (true)
     {
         switch (id)

@@ -12,31 +12,31 @@ ServerWindow::ServerWindow(QWidget *parent) : QMainWindow(parent),
 
         switch(cmd.id) {
         case 1:
-            trem1->setVelocidade(cmd.velocidade);
+            trem1->setVelocidade((100 - cmd.velocidade + 1) * 3);
             trem1->setEnable(cmd.enable);
             break;
         case 2:
-            trem2->setVelocidade(cmd.velocidade);
+            trem2->setVelocidade((100 - cmd.velocidade + 1)*3);
             trem2->setEnable(cmd.enable);
             break;
         case 3:
-            trem3->setVelocidade(cmd.velocidade);
+            trem3->setVelocidade((100 - cmd.velocidade + 1)*3);
             trem3->setEnable(cmd.enable);
             break;
         case 4:
-            trem4->setVelocidade(cmd.velocidade);
+            trem4->setVelocidade((100 - cmd.velocidade + 1)*3);
             trem4->setEnable(cmd.enable);
             break;
         case 5:
-            trem5->setVelocidade(cmd.velocidade);
+            trem5->setVelocidade((100 - cmd.velocidade + 1)*3);
             trem5->setEnable(cmd.enable);
             break;
         case 6:
-            trem6->setVelocidade(cmd.velocidade);
+            trem6->setVelocidade((100 - cmd.velocidade + 1)*3);
             trem6->setEnable(cmd.enable);
             break;
         case 7:
-            trem7->setVelocidade(cmd.velocidade);
+            trem7->setVelocidade((100 - cmd.velocidade + 1)*3);
             trem7->setEnable(cmd.enable);
             break;
         default:
