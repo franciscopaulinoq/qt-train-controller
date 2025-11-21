@@ -82,7 +82,7 @@ font-weight: bold;</string>
       </rect>
      </property>
      <property name="text">
-      <string>0</string>
+      <string>1</string>
      </property>
     </widget>
     <widget class="QSlider" name="sliderSpeed">
@@ -95,13 +95,13 @@ font-weight: bold;</string>
       </rect>
      </property>
      <property name="minimum">
-      <number>0</number>
+      <number>1</number>
      </property>
      <property name="maximum">
       <number>100</number>
      </property>
      <property name="value">
-      <number>0</number>
+      <number>1</number>
      </property>
      <property name="orientation">
       <enum>Qt::Orientation::Horizontal</enum>
@@ -141,7 +141,7 @@ font-weight: bold;</string>
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
