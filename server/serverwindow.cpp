@@ -39,6 +39,21 @@ ServerWindow::ServerWindow(QWidget *parent) : QMainWindow(parent),
             trem7->setVelocidade((100 - cmd.velocidade + 1)*3);
             trem7->setEnable(cmd.enable);
             break;
+        case 0:
+            trem1->setVelocidade((100 - cmd.velocidade + 1) * 3);
+            trem1->setEnable(cmd.enable);
+            trem2->setVelocidade((100 - cmd.velocidade + 1)*3);
+            trem2->setEnable(cmd.enable);
+            trem3->setVelocidade((100 - cmd.velocidade + 1)*3);
+            trem3->setEnable(cmd.enable);
+            trem4->setVelocidade((100 - cmd.velocidade + 1)*3);
+            trem4->setEnable(cmd.enable);
+            trem5->setVelocidade((100 - cmd.velocidade + 1)*3);
+            trem5->setEnable(cmd.enable);
+            trem6->setVelocidade((100 - cmd.velocidade + 1)*3);
+            trem6->setEnable(cmd.enable);
+            trem7->setVelocidade((100 - cmd.velocidade + 1)*3);
+            trem7->setEnable(cmd.enable);
         default:
             qDebug() << "ID de trem desconhecido:" << cmd.id;
             break;
