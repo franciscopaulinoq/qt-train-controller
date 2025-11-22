@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>ServerWindow</string>
+   <string>Servidor de Trens</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QLabel" name="labelTrilho01">

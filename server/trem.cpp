@@ -44,7 +44,7 @@ void Trem::run()
                 {
                     if (x == 250)
                     {
-                        semaphoreVector->at(0).semaphore.acquire(1);
+                        semaphoreVector->at(0).semaphore.acquire(1); // Bloqueia acesso à RC1
                     }
                     x += 10;
                 }
@@ -52,7 +52,7 @@ void Trem::run()
                 {
                     if (y == 130)
                     {
-                        semaphoreVector->at(5).semaphore.acquire(1);
+                        semaphoreVector->at(5).semaphore.acquire(1); // Bloqueia acesso à RC6
                     }
                     y += 10;
                 }
@@ -61,11 +61,11 @@ void Trem::run()
                     x -= 10;
                     if (x == 250)
                     {
-                        semaphoreVector->at(0).semaphore.release(1);
+                        semaphoreVector->at(0).semaphore.release(1); // Libera acesso à RC1
                     }
                     if (x == 190)
                     {
-                        semaphoreVector->at(5).semaphore.release(1);
+                        semaphoreVector->at(5).semaphore.release(1); // Libera acesso à RC6
                     }
                 }
                 else
@@ -82,19 +82,19 @@ void Trem::run()
                 {
                     if (x == 290)
                     {
-                        semaphoreVector->at(0).semaphore.acquire(1);
+                        semaphoreVector->at(0).semaphore.acquire(1); // Bloqueia acesso à RC1
                     }
                     x -= 10;
                     if (x == 390)
                     {
-                        semaphoreVector->at(1).semaphore.release(1);
+                        semaphoreVector->at(1).semaphore.release(1); // Libera acesso à RC2
                     }
                 }
                 else if (x == 270 && y < 150)
                 {
                     if (y == 130)
                     {
-                        semaphoreVector->at(6).semaphore.acquire(1);
+                        semaphoreVector->at(6).semaphore.acquire(1); // Bloqueia acesso à RC7
                     }
                     y += 10;
                 }
@@ -102,12 +102,12 @@ void Trem::run()
                 {
                     if (x == 390)
                     {
-                        semaphoreVector->at(1).semaphore.acquire(1);
+                        semaphoreVector->at(1).semaphore.acquire(1); // Bloqueia acesso à RC2
                     }
                     x += 10;
                     if (x == 290)
                     {
-                        semaphoreVector->at(0).semaphore.release(1);
+                        semaphoreVector->at(0).semaphore.release(1); // Libera acesso à RC1
                     }
                 }
                 else
@@ -115,7 +115,7 @@ void Trem::run()
                     y -= 10;
                     if (y == 120)
                     {
-                        semaphoreVector->at(6).semaphore.release(1);
+                        semaphoreVector->at(6).semaphore.release(1); // Bloqueia acesso à RC7
                     }
                 }
             }
@@ -126,11 +126,11 @@ void Trem::run()
                 emit updateGUI(id, x, y);
                 if (y == 50 && x < 550)
                 {
+                    x += 10;
                     if (x == 430)
                     {
-                        semaphoreVector->at(1).semaphore.release(1);
+                        semaphoreVector->at(1).semaphore.release(1); // Libera acesso à RC2
                     }
-                    x += 10;
                 }
                 else if (x == 550 && y < 150)
                 {
@@ -140,11 +140,11 @@ void Trem::run()
                 {
                     if (x == 430)
                     {
-                        semaphoreVector->at(1).semaphore.acquire(1);
+                        semaphoreVector->at(1).semaphore.acquire(1); // Bloqueia acesso à RC2
                     }
                     if (x == 500)
                     {
-                        semaphoreVector->at(2).semaphore.acquire(1);
+                        semaphoreVector->at(2).semaphore.acquire(1); // Bloqueia acesso à RC3
                     }
                     x -= 10;
                 }
@@ -153,7 +153,7 @@ void Trem::run()
                     y -= 10;
                     if (y == 130)
                     {
-                        semaphoreVector->at(2).semaphore.release(1);
+                        semaphoreVector->at(2).semaphore.release(1); // Libera acesso à RC3
                     }
                 }
             }
@@ -166,72 +166,72 @@ void Trem::run()
                 {
                     if (x == 290)
                     {
-                        semaphoreVector->at(5).semaphore.acquire(1);
+                        semaphoreVector->at(5).semaphore.acquire(1); // Bloqueia acesso à RC6
                     }
                     if (x == 430)
                     {
-                        semaphoreVector->at(6).semaphore.acquire(1);
+                        semaphoreVector->at(6).semaphore.acquire(1); // Bloqueia acesso à RC7
                     }
                     if (x == 220)
                     {
-                        semaphoreVector->at(9).semaphore.acquire(1);
+                        semaphoreVector->at(9).semaphore.acquire(1); // Bloqueia acesso à RC10
                     }
                     x -= 10;
                     if (x == 380)
                     {
-                        semaphoreVector->at(2).semaphore.release(1);
+                        semaphoreVector->at(2).semaphore.release(1); // Libera acesso à RC3
                     }
                     if (x == 240)
                     {
-                        semaphoreVector->at(6).semaphore.release(1);
+                        semaphoreVector->at(6).semaphore.release(1); // Libera acesso à RC7
                     }
                     if (x == 460)
                     {
-                        semaphoreVector->at(8).semaphore.release(1);
+                        semaphoreVector->at(8).semaphore.release(1); // Libera acesso à RC9
                     }
                 }
                 else if (x == 200 && y < 250)
                 {
                     if (y == 230)
                     {
-                        semaphoreVector->at(7).semaphore.acquire(1);
+                        semaphoreVector->at(7).semaphore.acquire(1); // Bloqueia acesso à RC8
                     }
                     y += 10;
                     if (y == 170)
                     {
-                        semaphoreVector->at(5).semaphore.release(1);
+                        semaphoreVector->at(5).semaphore.release(1); // Libera acesso à RC6
                     }
                 }
                 else if (x < 480 && y == 250)
                 {
                     if (x == 320)
                     {
-                        semaphoreVector->at(3).semaphore.acquire(1);
+                        semaphoreVector->at(3).semaphore.acquire(1); // Bloqueia acesso à RC4
                     }
                     if (x == 460)
                     {
-                        semaphoreVector->at(8).semaphore.acquire(1);
+                        semaphoreVector->at(8).semaphore.acquire(1); // Bloqueia acesso à RC9
                     }
                     x += 10;
                     if (x == 340)
                     {
-                        semaphoreVector->at(7).semaphore.release(1);
+                        semaphoreVector->at(7).semaphore.release(1); // Libera acesso à RC8
                     }
                     if (x == 220)
                     {
-                        semaphoreVector->at(9).semaphore.release(1);
+                        semaphoreVector->at(9).semaphore.release(1); // Libera acesso à RC10
                     }
                 }
                 else
                 {
                     if (y == 170)
                     {
-                        semaphoreVector->at(2).semaphore.acquire(1);
+                        semaphoreVector->at(2).semaphore.acquire(1); // Bloqueia acesso à RC3
                     }
                     y -= 10;
                     if (y == 240)
                     {
-                        semaphoreVector->at(3).semaphore.release(1);
+                        semaphoreVector->at(3).semaphore.release(1); // Libera acesso à RC4
                     }
                 }
             }
@@ -244,72 +244,72 @@ void Trem::run()
                 {
                     if (x == 290)
                     {
-                        semaphoreVector->at(5).semaphore.acquire(1);
+                        semaphoreVector->at(5).semaphore.acquire(1); // Bloqueia acesso à RC6
                     }
                     if (x == 430)
                     {
-                        semaphoreVector->at(6).semaphore.acquire(1);
+                        semaphoreVector->at(6).semaphore.acquire(1); // Bloqueia acesso à RC7
                     }
                     if (x == 220)
                     {
-                        semaphoreVector->at(9).semaphore.acquire(1);
+                        semaphoreVector->at(9).semaphore.acquire(1); // Bloqueia acesso à RC10
                     }
                     x -= 10;
                     if (x == 380)
                     {
-                        semaphoreVector->at(2).semaphore.release(1);
+                        semaphoreVector->at(2).semaphore.release(1); // Libera acesso à RC3
                     }
                     if (x == 240)
                     {
-                        semaphoreVector->at(6).semaphore.release(1);
+                        semaphoreVector->at(6).semaphore.release(1); // Libera acesso à RC7
                     }
                     if (x == 460)
                     {
-                        semaphoreVector->at(8).semaphore.release(1);
+                        semaphoreVector->at(8).semaphore.release(1); // Libera acesso à RC9
                     }
                 }
                 else if (x == 200 && y < 250)
                 {
                     if (y == 230)
                     {
-                        semaphoreVector->at(7).semaphore.acquire(1);
+                        semaphoreVector->at(7).semaphore.acquire(1); // Bloqueia acesso à RC8
                     }
                     y += 10;
                     if (y == 170)
                     {
-                        semaphoreVector->at(5).semaphore.release(1);
+                        semaphoreVector->at(5).semaphore.release(1); // Libera acesso à RC6
                     }
                 }
                 else if (x < 480 && y == 250)
                 {
                     if (x == 320)
                     {
-                        semaphoreVector->at(3).semaphore.acquire(1);
+                        semaphoreVector->at(3).semaphore.acquire(1); // Bloqueia acesso à RC4
                     }
                     if (x == 460)
                     {
-                        semaphoreVector->at(8).semaphore.acquire(1);
+                        semaphoreVector->at(8).semaphore.acquire(1); // Bloqueia acesso à RC9
                     }
                     x += 10;
                     if (x == 340)
                     {
-                        semaphoreVector->at(7).semaphore.release(1);
+                        semaphoreVector->at(7).semaphore.release(1); // Libera acesso à RC8
                     }
                     if (x == 220)
                     {
-                        semaphoreVector->at(9).semaphore.release(1);
+                        semaphoreVector->at(9).semaphore.release(1); // Libera acesso à RC10
                     }
                 }
                 else
                 {
                     if (y == 170)
                     {
-                        semaphoreVector->at(2).semaphore.acquire(1);
+                        semaphoreVector->at(2).semaphore.acquire(1); // Bloqueia acesso à RC3
                     }
                     y -= 10;
                     if (y == 240)
                     {
-                        semaphoreVector->at(3).semaphore.release(1);
+                        semaphoreVector->at(3).semaphore.release(1); // Libera acesso à RC4
                     }
                 }
             }
@@ -322,11 +322,11 @@ void Trem::run()
                 {
                     if (x == 320)
                     {
-                        semaphoreVector->at(4).semaphore.acquire(1);
+                        semaphoreVector->at(4).semaphore.acquire(1); // Bloqueia acesso à RC5
                     }
                     if (x == 180)
                     {
-                        semaphoreVector->at(7).semaphore.acquire(1);
+                        semaphoreVector->at(7).semaphore.acquire(1); // Bloqueia acesso à RC8
                     }
                     x += 10;
                 }
@@ -335,7 +335,7 @@ void Trem::run()
                     y += 10;
                     if (y == 280)
                     {
-                        semaphoreVector->at(7).semaphore.release(1);
+                        semaphoreVector->at(7).semaphore.release(1); // Libera acesso à RC8
                     }
                 }
                 else if (x > 130 && y == 350)
@@ -343,7 +343,7 @@ void Trem::run()
                     x -= 10;
                     if (x == 310)
                     {
-                        semaphoreVector->at(4).semaphore.release(1);
+                        semaphoreVector->at(4).semaphore.release(1); // Libera acesso à RC5
                     }
                 }
                 else
@@ -361,11 +361,11 @@ void Trem::run()
                     x += 10;
                     if (x == 360)
                     {
-                        semaphoreVector->at(4).semaphore.release(1);
+                        semaphoreVector->at(4).semaphore.release(1); // Libera acesso à RC5
                     }
                     if (x == 500)
                     {
-                        semaphoreVector->at(3).semaphore.release(1);
+                        semaphoreVector->at(3).semaphore.release(1); // Libera acesso à RC4
                     }
                 }
                 else if (x == 550 && y < 350)
@@ -376,7 +376,7 @@ void Trem::run()
                 {
                     if (x == 360)
                     {
-                        semaphoreVector->at(4).semaphore.acquire(1);
+                        semaphoreVector->at(4).semaphore.acquire(1); // Bloqueia acesso à RC5
                     }
                     x -= 10;
                 }
@@ -384,7 +384,7 @@ void Trem::run()
                 {
                     if (y == 270)
                     {
-                        semaphoreVector->at(3).semaphore.acquire(1);
+                        semaphoreVector->at(3).semaphore.acquire(1); // Bloqueia acesso à RC4
                     }
                     y -= 10;
                 }
