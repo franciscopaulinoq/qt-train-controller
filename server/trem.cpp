@@ -177,11 +177,11 @@ void Trem::run()
                         semaphoreVector->at(9).semaphore.acquire(1);
                     }
                     x -= 10;
-                    if (x == 400)
+                    if (x == 380)
                     {
                         semaphoreVector->at(2).semaphore.release(1);
                     }
-                    if (x == 250)
+                    if (x == 240)
                     {
                         semaphoreVector->at(6).semaphore.release(1);
                     }
@@ -255,11 +255,11 @@ void Trem::run()
                         semaphoreVector->at(9).semaphore.acquire(1);
                     }
                     x -= 10;
-                    if (x == 400)
+                    if (x == 380)
                     {
                         semaphoreVector->at(2).semaphore.release(1);
                     }
-                    if (x == 250)
+                    if (x == 240)
                     {
                         semaphoreVector->at(6).semaphore.release(1);
                     }
