@@ -3,12 +3,12 @@
 
 #include <QObject>
 #include <thread>
-#include <chrono>
 #include <QSemaphore>
 
 using namespace std;
 
-struct BinarySemaphoreWrapper {
+struct BinarySemaphoreWrapper
+{
     mutable QSemaphore semaphore;
 
     BinarySemaphoreWrapper() : semaphore(1) {}
@@ -18,7 +18,7 @@ class Trem : public QObject
 {
     Q_OBJECT
 public:
-    Trem(int, int, int, QVector<BinarySemaphoreWrapper>*);
+    Trem(int, int, int, QVector<BinarySemaphoreWrapper> *);
     ~Trem();
     void start();
     void run();

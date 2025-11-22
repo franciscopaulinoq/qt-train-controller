@@ -1,6 +1,7 @@
 #ifndef SERVERWINDOW_H
 #define SERVERWINDOW_H
 
+#include "qlabel.h"
 #include "trem.h"
 #include "controllertcpserver.h"
 #include <QMainWindow>
@@ -37,7 +38,11 @@ private:
     Trem *trem5;
     Trem *trem6;
     Trem *trem7;
+
     QVector<BinarySemaphoreWrapper> semaphoreVector{10};
+
+    Trem *getTrem(int id);
+    QLabel *getLabelTrem(int id);
 };
 
 #endif // SERVERWINDOW_H

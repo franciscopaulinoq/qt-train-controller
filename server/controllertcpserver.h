@@ -8,7 +8,8 @@
 #include <QTcpServer>
 #include <QTcpSocket>
 
-struct TrainCommand {
+struct TrainCommand
+{
     int id;
     int velocidade;
     bool enable;

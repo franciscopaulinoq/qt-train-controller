@@ -7,7 +7,7 @@ ControllerTcpServer::ControllerTcpServer(QObject *parent) : QTcpServer(parent)
 
 void ControllerTcpServer::startServer(int port)
 {
-    if(!this->listen(QHostAddress::Any, port))
+    if (!this->listen(QHostAddress::Any, port))
     {
         qDebug() << "Erro: Não foi possível iniciar o servidor na porta" << port;
     }
@@ -21,7 +21,8 @@ void ControllerTcpServer::onNewConnection()
 {
     QTcpSocket *client = nextPendingConnection();
 
-    connect(client, &QTcpSocket::readyRead, this, [this, client]() {
+    connect(client, &QTcpSocket::readyRead, this, [this, client]()
+            {
         while (client->bytesAvailable()) {
             QByteArray data = client->readAll();
 
@@ -48,8 +49,7 @@ void ControllerTcpServer::onNewConnection()
             emit commandReceived(cmd);
 
             client->write("Comando recebido com sucesso\n");
-        }
-    });
+        } });
 
     connect(client, &QTcpSocket::disconnected, client, &QTcpSocket::deleteLater);
 }
