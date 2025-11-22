@@ -1,5 +1,7 @@
 # Simulação de Controle de Tráfego de Trens
 
+![Demonstração do sistema funcionando sem colisões](assets/demo_trens.gif)
+
 **Descrição:** Este projeto simula uma malha ferroviária com múltiplos trens operando simultaneamente. Desenvolvido como requisito da disciplina de Sistemas Operacionais, o foco principal é a aplicação prática de conceitos de Programação Concorrente.
 
 **Principais Implementações:**
