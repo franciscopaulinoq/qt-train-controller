@@ -7,9 +7,7 @@
 #include <QJsonDocument>
 
 ClientWindow::ClientWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::ClientWindow)
-    , socket(new QTcpSocket(this))
+    : QMainWindow(parent), ui(new Ui::ClientWindow), socket(new QTcpSocket(this))
 {
     ui->setupUi(this);
 
@@ -37,17 +35,20 @@ void ClientWindow::log(const QString &msg)
 
 void ClientWindow::sendJson(const QJsonObject &jsonObj)
 {
-    if (socket->state() == QAbstractSocket::ConnectedState) {
+    if (socket->state() == QAbstractSocket::ConnectedState)
+    {
         QJsonDocument doc(jsonObj);
-        
+
         QByteArray data = doc.toJson(QJsonDocument::Compact);
-        
+
         socket->write(data);
         socket->flush();
-        
+
         log("[ENVIADO] " + QString::fromUtf8(data));
-    } else {
-        log("⚠ Não conectado ao servidor!");
+    }
+    else
+    {
+        log("Não conectado ao servidor!");
     }
 }
 
@@ -83,36 +84,36 @@ void ClientWindow::on_btnTrainOff_clicked()
 void ClientWindow::on_sliderSpeed_valueChanged(int value)
 {
     ui->labelSpeedValue->setText(QString::number(value));
-    
 
     int id = ui->lineTrainId->text().toInt();
 
-    if (id >= 0 && socket->state() == QAbstractSocket::ConnectedState) {
+    if (id >= 0 && socket->state() == QAbstractSocket::ConnectedState)
+    {
         QJsonObject json;
         json["id"] = id;
         json["velocidade"] = value;
-        json["enable"] = true; 
+        json["enable"] = true;
         sendJson(json);
     }
 }
-
 
 // ---------------------------
 // Socket callbacks
 // ---------------------------
 void ClientWindow::onConnected()
 {
-    log("🟢 Conectado ao servidor!");
+    log("Conectado ao servidor!");
 }
 
 void ClientWindow::onDisconnected()
 {
-    log("🔴 Desconectado do servidor!");
+    log("Desconectado do servidor!");
 }
 
 void ClientWindow::onReadyRead()
 {
-    while (socket->bytesAvailable()) {
+    while (socket->bytesAvailable())
+    {
         QByteArray data = socket->readAll();
         log("[SERVER] " + QString::fromUtf8(data));
     }
@@ -120,5 +121,5 @@ void ClientWindow::onReadyRead()
 
 void ClientWindow::onError(QAbstractSocket::SocketError)
 {
-    log("❌ Erro de socket: " + socket->errorString());
+    log("Erro de socket: " + socket->errorString());
 }

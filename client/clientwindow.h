@@ -24,7 +24,6 @@ private slots:
     void on_btnTrainOff_clicked();
     void on_sliderSpeed_valueChanged(int value);
 
-
     // socket events
     void onConnected();
     void onDisconnected();
